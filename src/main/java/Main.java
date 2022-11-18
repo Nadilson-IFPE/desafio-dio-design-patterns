@@ -1,3 +1,5 @@
+import dio.design.pattern.comportamentais.observer.RockBandFan;
+import dio.design.pattern.comportamentais.observer.RockShowNotifier;
 import dio.design.pattern.criacionais.builder.*;
 import dio.design.pattern.estruturais.decorator.Carro;
 import dio.design.pattern.estruturais.decorator.CarroDeLuxo;
@@ -37,5 +39,20 @@ public class Main {
         System.out.println(refeicao);
 
         System.out.println("\n--------------------------------------------\n");
+
+        // Observer
+        System.out.println("Design Pattern: Observer");
+        RockShowNotifier notifier = new RockShowNotifier();
+        notifier.register(new RockBandFan("Maria"));
+        System.out.println("Maria é fã de banda de Rock.");
+        notifier.register(new RockBandFan("Raquel"));
+        System.out.println("Raquel é fã de banda de Rock.");
+        notifier.register(new RockBandFan("Helena"));
+        System.out.println("Helena é fã de banda de Rock.\n");
+        System.out.println("Banda de Rock anuncia datas de shows...\n");
+        notifier.bandaAnunciaShow();
+
+        System.out.println("\n--------------------------------------------\n");
+
     }
 }
